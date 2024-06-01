@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import "./globals.css";
+import QueryProvider from "@/providers/query-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +32,7 @@ export default function RootLayout({
           <SignedIn>
             <UserButton />
           </SignedIn> */}
-          {children}
+          <QueryProvider>{children}</QueryProvider>
         </body>
       </html>
     </ClerkProvider>
