@@ -8,11 +8,14 @@ import { ResponseType, columns } from "./columns";
 import { DataTable } from "@/components/data-table";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useBulkAccount } from "@/features/accounts/api/use-bulk-delete";
 
 const AccountsPage = () => {
   const newAccount = useNewAccount();
   const accountsQuery = useGetAccounts();
+  const deleteAccount = useBulkAccount();
   const accounts = accountsQuery.data || [];
+  const isDisabled = deleteAccount.isPending || accountsQuery.isLoading;
   if (accountsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto pb-10 w-full -mt-24">
@@ -41,7 +44,11 @@ const AccountsPage = () => {
             columns={columns}
             data={accounts}
             filterKey="email"
-            onDelete={() => {}}
+            onDelete={(rows) => {
+              const ids = rows.map((row) => row.original.id);
+              deleteAccount.mutate({ ids });
+            }}
+            disabled={isDisabled}
           />
         </CardContent>
       </Card>
