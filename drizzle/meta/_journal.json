@@ -8,6 +8,13 @@
       "when": 1717222883217,
       "tag": "0000_green_lucky_pierre",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1717477276744,
+      "tag": "0001_rainy_jean_grey",
+      "breakpoints": true
     }
   ]
 }
