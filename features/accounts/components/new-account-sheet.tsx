@@ -24,7 +24,7 @@ const NewAccountSheet = () => {
         <SheetHeader className="space-y-4">
           <SheetTitle>New Account</SheetTitle>
           <SheetDescription>
-            Create new account to ack your transactions
+            Create new account to track your transactions
           </SheetDescription>
           <AccountForm
             onSubmit={onSubmit}
