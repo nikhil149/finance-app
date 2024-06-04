@@ -15,6 +15,13 @@
       "when": 1717477276744,
       "tag": "0001_rainy_jean_grey",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1717497906775,
+      "tag": "0002_blue_obadiah_stane",
+      "breakpoints": true
     }
   ]
 }
