@@ -99,7 +99,7 @@ const app = new Hono()
       if (!id) {
         return c.json({ error: "missing id" }, 402);
       }
-      const data = await db
+      const [data] = await db
         .update(accounts)
         .set(values)
         .where(and(eq(accounts.id, id), eq(accounts.userId, auth.userId)))
@@ -123,7 +123,7 @@ const app = new Hono()
       if (!id) {
         return c.json({ error: "missing id" }, 402);
       }
-      const data = await db
+      const [data] = await db
         .delete(accounts)
         .where(and(eq(accounts.id, id), eq(accounts.userId, auth.userId)))
         .returning({ id: accounts.id });

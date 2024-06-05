@@ -99,7 +99,7 @@ const app = new Hono()
       if (!id) {
         return c.json({ error: "missing id" }, 402);
       }
-      const data = await db
+      const [data] = await db
         .update(categories)
         .set(values)
         .where(and(eq(categories.id, id), eq(categories.userId, auth.userId)))
