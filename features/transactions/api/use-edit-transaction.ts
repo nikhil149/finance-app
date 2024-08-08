@@ -27,7 +27,7 @@ export const useEditTransaction = (id?: string) => {
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
     },
     onError: () => {
-      toast.error("Failed to update an transaction");
+      toast.error("Failed to edit an transaction");
     },
   });
   return mutation;

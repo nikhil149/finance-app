@@ -197,6 +197,8 @@ const app = new Hono()
           .innerJoin(accounts, eq(transactions.accountId, accounts.id))
           .where(and(eq(transactions.id, id), eq(accounts.userId, auth.userId)))
       );
+      console.log(values, "Values");
+      console.log("Transaction", transactionsToUpdate);
       const [data] = await db
         .with(transactionsToUpdate)
         .update(transactions)

@@ -12,11 +12,7 @@ type Props = {
   categoryId: string | null;
 };
 
-export const CategoryColumn = ({
-  id,
-  category,
-  categoryId,
-}: Props) => {
+export const CategoryColumn = ({ id, category, categoryId }: Props) => {
   const { onOpen: onOpenCategory } = useOpenCategory();
   const { onOpen: onOpenTransaction } = useOpenTransaction();
 
@@ -33,7 +29,7 @@ export const CategoryColumn = ({
       onClick={onClick}
       className={cn(
         "flex items-center cursor-pointer hover:underline",
-        !category && "text-rose-500",
+        !category && "text-rose-500"
       )}
     >
       {!category && <TriangleAlert className="mr-2 size-4 shrink-0" />}
