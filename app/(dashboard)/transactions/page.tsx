@@ -19,6 +19,7 @@ import { columns } from "./columns";
 import { ImportCard } from "./import-card";
 // import { UploadButton } from "./upload-button";
 import { useSelectAccount } from "@/features/accounts/hooks/use-select-account";
+import { UploadButton } from "./upload-button";
 
 enum VARIANTS {
   LIST = "LIST",
@@ -37,7 +38,6 @@ const TransactionsPage = () => {
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
 
   const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
-    console.log({ results });
     setImportResults(results);
     setVariant(VARIANTS.IMPORT);
   };
@@ -123,7 +123,7 @@ const TransactionsPage = () => {
               <Plus className="size-4 mr-2" />
               Add new
             </Button>
-            {/* <UploadButton onUpload={onUpload} /> */}
+            <UploadButton onUpload={onUpload} />
           </div>
         </CardHeader>
         <CardContent>
